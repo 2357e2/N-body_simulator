@@ -32,7 +32,7 @@ class Simulation:
         self.start = start
         self.record_data = record_data
 
-    def update (self, timeVal):
+    def update (self, timeVal: float) -> None:
         """
         Updates animation with set time interval. Increments each particle's angular position by angular velocity. 
         No returns. If time exceeds simulationLength, stops.

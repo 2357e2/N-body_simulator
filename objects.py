@@ -5,23 +5,32 @@ from params import particle_mass, n_rings
 from utils import static_velocity
 
 class Particle:
-    def __init__(this, particleNumber, mass, radius, angle, velocity, ringNumber, galaxyNumber):
-        this.particleNumber = particleNumber
-        this.mass = mass
-        this.radius = radius
-        this.angle = angle
-        this.velocity = velocity # in polar coords
-        this.ringNumber = ringNumber
-        this.galaxyNumber = galaxyNumber
+    def __init__(
+        self, 
+        particleNumber: int, 
+        mass: float, 
+        radius: int, 
+        angle: float, 
+        velocity: List[float], 
+        ringNumber: int, 
+        galaxyNumber: int
+    ) -> None:
+        self.particleNumber = particleNumber
+        self.mass = mass
+        self.radius = radius
+        self.angle = angle
+        self.velocity = velocity # in polar coords
+        self.ringNumber = ringNumber
+        self.galaxyNumber = galaxyNumber
 
 class Ring:
-    def __init__(this, iden, radius, particles):
-        this.id = iden
-        this.radius = radius
-        this.particles = particles
+    def __init__(self, iden: int, radius: int, particles: List[Particle]) -> None:
+        self.id = iden
+        self.radius = radius
+        self.particles = particles
 
 class Galaxy:
-    def __init__(this, mass: float, position: List[float], velocity: List[float]):
+    def __init__(self, mass: float, position: List[float], velocity: List[float]) -> None:
         ringList = []
         for i in range(n_rings):
             particleList = []
@@ -35,11 +44,11 @@ class Galaxy:
             ring = Ring(i, radius, particleList) # rings have radii of 2,2.5,3,3.5,4,4.5,5,5.5,6,6.5
             ringList.append(ring)
 
-        this.mass = mass
-        this.position = position # in polar coords
-        this.velocity = velocity # in polar coords
-        this.rings = ringList
+        self.mass = mass
+        self.position = position # in polar coords
+        self.velocity = velocity # in polar coords
+        self.rings = ringList
 
 class Universe:
-    def __init__(this, galaxies):
-        this.galaxies = galaxies
+    def __init__(self, galaxies: List[Galaxy]) -> None:
+        self.galaxies = galaxies

@@ -3,7 +3,7 @@ from matplotlib.animation import FuncAnimation as Animation
 from params import *
 from simulation import Simulation
 
-def plot(simulation: Simulation):
+def plot(simulation: Simulation) -> None:
     fig = plt.figure(figsize = (8,8)) # Square figure array of length 8 (to fit my laptop screen)
     ax0 = fig.add_axes([0,0,1,1])
     ax1 = ax0.twinx() # Superpose second axis onto first
